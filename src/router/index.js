@@ -12,6 +12,7 @@ import Sort from '../pages/Sort.vue'
 import ShopCart from '../pages/ShopCart.vue'
 import Mine from '../pages/Mine.vue'
 import PhoneList from '../pages/PhoneList.vue'
+import PhoneDetail from '../pages/PhoneDetail.vue'
 
 
 Vue.use(Router)
@@ -43,7 +44,12 @@ export default new Router({
     {
       path: '/phonelist',
       name: 'PhoneList',
-      component: PhoneList
+      component: PhoneList,
+    },
+    {
+      path: '/phonedetail',
+      name: 'PhoneDetail',
+      component: PhoneDetail
     }
   ]
 })

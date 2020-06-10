@@ -20,7 +20,25 @@
       <van-button color="#f2f2f7" size="small">屏幕尺寸</van-button>
       <van-button color="#f2f2f7" size="small">热点</van-button>
       <van-button color="#f2f2f7" size="small">存储卡</van-button>     
-    </div>
+    </div>    
+    <!-- 手机列表  -->
+    <div class="phone_list">
+      <div class="phone_item" v-for="(item,index) in phonelists" :key="index" @click="tophonedetail">
+        <div class="phone_cover"><img src="../images/PhoneList/iphone11.jpg"></div>
+          <div class="phone_info">
+            <div class="phone_info_above">
+              <p class="phone_title">{{item.title}}</p>
+              <div class="phone_attr">
+                  <span>{{item.gb}}</span><span style="margin-left: 7%;">{{item.size}}</span>
+              </div>
+            </div>
+            <div class="phone_info_below">
+              <div class="phone_price">{{item.price}}</div>
+              <div class="phone_shop">{{item.shop}}</div>
+          </div>
+        </div>
+      </div>
+    </div>    
   </div>
 </template>
 
@@ -43,6 +61,13 @@ export default {
         { text: '好评排序', value: 'b' },
         { text: '销量排序', value: 'c' },
       ],
+      phonelists:[
+        {title:"Apple iPhone 11",gb:"128GB",size:"6.1英寸",price:"￥5999",shop:"Apple产品京东自营旗舰店"},
+        {title:"Apple iPhone 12",gb:"128GB",size:"6.2英寸",price:"￥6999",shop:"Apple产品京东自营旗舰店"},
+        {title:"Apple iPhone 13",gb:"128GB",size:"6.3英寸",price:"￥7999",shop:"Apple产品京东自营旗舰店"},
+        {title:"Apple iPhone 14",gb:"128GB",size:"6.4英寸",price:"￥8999",shop:"Apple产品京东自营旗舰店"},
+        {title:"Apple iPhone 15",gb:"128GB",size:"6.5英寸",price:"￥9999",shop:"Apple产品京东自营旗舰店"},
+      ]
     };
   },
 
@@ -52,6 +77,9 @@ export default {
     onClickLeft(){
       this.$router.push('/sort')
     },
+    tophonedetail(){
+      this.$router.push('/phonedetail')
+    }
   }
 }
 </script>
@@ -73,5 +101,42 @@ export default {
 }
 .van-button__content span{
   color: #666;
+}
+/* 手机列表 */
+.phone_list .phone_item{
+    display: flex;
+    padding-bottom: 10px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+}
+.phone_list .phone_item .phone_cover{
+    width: 120px;
+    height: 120px;
+}
+.phone_list .phone_item .phone_cover img{
+    width: 100%;
+}
+.phone_list .phone_item .phone_info{
+    margin-left: 5%;
+}
+.phone_list .phone_item .phone_info_above .phone_title{
+    font-size: 14px;
+}
+.phone_list .phone_item .phone_info_above .phone_attr span{
+    font-size: 12px;
+    padding: 0 5px;
+    background: #f2f2f7;
+}
+.phone_list .phone_item .phone_info_below{
+    margin-top: 5%;
+}
+.phone_list .phone_item .phone_info_below .phone_price{
+    font-size: 18px;
+    color: red;
+    margin-top: 3px;
+}
+.phone_list .phone_item .phone_info_below .phone_shop{
+    font-size: 14px;
+    color: #999;
 }
 </style>
