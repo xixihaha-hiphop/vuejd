@@ -41,16 +41,6 @@
       <div class="swiper-pagination" slot="pagination"></div>
     </swiper>
     <!-- 底部导航 -->
-    <!-- <van-tabbar route>
-      <van-tabbar-item replace to="/" icon="home-o">首页
-      </van-tabbar-item>
-      <van-tabbar-item replace to="/sort" icon="apps-o">分类
-      </van-tabbar-item>
-      <van-tabbar-item replace to="/shopcart" icon="shopping-cart-o">购物车
-      </van-tabbar-item>
-      <van-tabbar-item replace to="/mine" icon="user-o">我的
-      </van-tabbar-item>
-    </van-tabbar> -->
     <FooterGuide></FooterGuide>
       
       
@@ -96,7 +86,6 @@ ul {
 }
 li {
   display: inline-block;
-  
 }
 /* 轮播图 */
 .my-swipe .van-swipe-item {
