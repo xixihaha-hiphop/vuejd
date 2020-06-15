@@ -54,6 +54,7 @@
       <div class="choose">
         <span>已选</span>
         <span>绿色，64GB，换修无忧年付版，1个</span>
+        <Specification></Specification>
         <p>本商品支持保障服务，点击可选服务</p>
       </div>
       <div class="transfer">
@@ -91,11 +92,16 @@
         <button>进入店铺</button>
       </div>
     </div>
-    <button @click="show = true">click</button>
-    <Specification></Specification>
-    <br>
-    <br>
-    <br>
+
+    <div class="footer">
+      <div class="gotop" v-if="btnFlag" @click="backtop">
+        <van-icon name="upgrade" size="30" color="rgb(255, 196, 28)"/>
+      </div>
+    </div>
+
+    <br />
+    <br />
+    <br />
     <!-- 底部购买导航 -->
     <van-goods-action>
       <van-goods-action-icon icon="chat-o" text="客服" dot />
@@ -109,8 +115,8 @@
 
 <script>
 import Comment from "../components/Comment";
-import ProductBar from "../components/ProductBar"
-import Specification from "../components/Specification"
+import ProductBar from "../components/ProductBar";
+import Specification from "../components/Specification";
 
 export default {
   data() {
@@ -120,7 +126,8 @@ export default {
           el: ".swiper-pagination",
           type: "fraction"
         }
-      }
+      },
+      btnFlag: false
     };
   },
 
@@ -128,6 +135,11 @@ export default {
     swiper() {
       return this.$refs.mySwiper.$swiper;
     }
+  },
+
+  mounted() {
+    // 此处true需要加上，不加滚动事件可能绑定不成功
+    window.addEventListener("scroll", this.showbtn, true);
   },
 
   components: {
@@ -139,6 +151,32 @@ export default {
   methods: {
     goback() {
       this.$router.push("/phonelist");
+    },
+    showbtn() {
+      let that = this;
+      let scrollTop =
+        window.pageYOffset ||
+        document.documentElement.scrollTop ||
+        document.body.scrollTop;
+      that.scrollTop = scrollTop;
+      if (that.scrollTop > 200) {
+        that.btnFlag = true;
+      } else {
+        that.btnFlag = false;
+      }
+    },
+    backtop() {
+      var timer = setInterval(function() {
+        let osTop =
+          document.documentElement.scrollTop || document.body.scrollTop;
+        let ispeed = Math.floor(-osTop / 5);
+        document.documentElement.scrollTop = document.body.scrollTop =
+          osTop + ispeed;
+        this.isTop = true;
+        if (osTop === 0) {
+          clearInterval(timer);
+        }
+      }, 30);
     }
   }
 };
@@ -193,6 +231,7 @@ export default {
   color: #666;
   font-size: 12px;
 }
+
 /* 属性选择 */
 .floor_item {
   margin-top: 10px;
@@ -270,5 +309,17 @@ export default {
   padding: 0 20px;
   margin: 10px;
   outline: none;
+}
+/*  */
+.footer .gotop {
+  text-align: center;
+  position: fixed;
+  right: 2%;
+  bottom: 20%;
+  cursor: pointer;
+  padding: 0px;
+  border-radius: 50%;
+  background: white;
+  color: #000000;
 }
 </style>
