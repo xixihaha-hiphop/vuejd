@@ -20,7 +20,6 @@
           @buy-clicked="onBuyClicked"
           @add-cart="onAddCartClicked"
         />
-       
       </div> 
  
 </div>
@@ -42,7 +41,7 @@ export default {
         s2: '1193',
         selectedNum: 3
       },
-      customSkuValidator: () => '请选择xxx!', 
+      customSkuValidator: () => '请选择商品规格!', 
     };
   },
 
@@ -51,7 +50,6 @@ export default {
       this.$toast('buy:' + JSON.stringify(data));
       console.log(JSON.stringify(data))
     },
-
     onAddCartClicked(data) {
       this.$toast('add cart:' + JSON.stringify(data));
     }, 

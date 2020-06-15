@@ -1,0 +1,175 @@
+.header_bar {
+  display: flex;
+  background: #fff;
+  padding: 5px;
+}
+.header_bar .back {
+  width: 30px;
+  height: 30px;
+  background-color: #666;
+  border-radius: 50%;
+}
+.header_bar .back img {
+  width: 100%;
+}
+.header_bar .cart {
+  width: 84%;
+  text-align: center;
+}
+.header_bar #menu {
+  width: 30px;
+  height: 30px;
+  background-color: #666;
+  border-radius: 50%;
+}
+.header_bar #menu img {
+  width: 100%;
+}
+/* 头部导航菜单 */
+.header_nav{
+  width: 125px;
+  background-color: rgba(0,0,0,.8);
+  right: 10px;
+  top: 53px;
+  border-radius: 40px;
+  position: absolute;
+  border-top-right-radius: 0px;
+}
+.header_nav a{
+  height: 40px;
+  line-height: 40px;
+  margin-top: 5px;
+  display: block;
+}
+.header_nav .header_nav_item{
+  height: 40px;
+  line-height: 40px;
+  margin-top: 5px;
+  border-bottom: 1px solid #fff;
+}
+.header_nav .header_nav_item span{
+  color: #fff;
+  font-size: 14px;
+  display: block;
+  margin-top: -42px;
+  margin-left: 50px;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.header_nav .header_nav_item .van-icon{
+  width: 25px;
+  margin-left: 15px;
+  margin-right: 10px;
+}
+/* 手动轮播图 */
+.swiper-container .swiper-slide img {
+  width: 100%;
+}
+.swiper-pagination {
+  background: #ccc;
+  color: #fff;
+  border-radius: 10px 0 0 10px;
+}
+/* 购买信息描述 */
+.buy_area {
+  overflow: hidden;
+  background: #fff;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding: 15px;
+}
+.buy_area .item_desc p {
+  color: #666;
+  font-size: 12px;
+}
+
+/* 属性选择 */
+.floor_item {
+  margin-top: 10px;
+  background: #fff;
+  border-radius: 20px;
+}
+.floor_item .choose,
+.transfer,
+.weight {
+  margin-top: 5px;
+  padding: 15px 0;
+}
+.floor_item .weight {
+  padding: 18px 20px 18px 0;
+}
+.floor_item .choose span,
+.transfer span,
+.weight span {
+  font-size: 13px;
+  color: #333;
+  margin-left: 10px;
+}
+.floor_item .choose p,
+.transfer p {
+  font-size: 12px;
+  color: #8c8c8c;
+  margin-left: 50px;
+  padding-top: 5px;
+}
+/* 店铺 */
+.shop {
+  font-size: 14px;
+  margin-top: 10px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 15px;
+}
+.shop .shop_name {
+  height: 40px;
+}
+.shop .shop_name img {
+  width: 40px;
+  height: 40px;
+  vertical-align: middle;
+}
+.shop .shop_name span {
+  font-size: 13px;
+  vertical-align: middle;
+  line-height: 40px;
+  margin-left: 5px;
+}
+.shop .shop_tab {
+  margin: 18px 0;
+  display: flex;
+}
+.shop .shop_tab .tab_item {
+  width: 100%;
+  text-align: center;
+}
+.shop .shop_tab .tab_item .desc {
+  font-size: 12px;
+  color: #999;
+  margin-top: 3px;
+}
+.shop .shop_btn {
+  text-align: center;
+}
+.shop .shop_btn button {
+  background-color: #fff;
+  border: none;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  height: 30px;
+  font-size: 12px;
+  padding: 0 20px;
+  margin: 10px;
+  outline: none;
+}
+/* 回到顶部按钮 */
+.footer .gotop {
+  text-align: center;
+  position: fixed;
+  right: 2%;
+  bottom: 20%;
+  cursor: pointer;
+  padding: 0px;
+  border-radius: 50%;
+  background: transparent;
+  color: #000000;
+}

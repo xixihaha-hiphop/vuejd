@@ -6,10 +6,13 @@
         <img src="../images/返回白.png" />
       </div>
       <div class="cart"></div>
-      <div id="menu">
+      <div id="menu" @click="showMenu">
         <img src="../images/省略号白.png" />
       </div>
     </div>
+    <!-- 头部导航菜单 -->
+    <MenuNav></MenuNav>
+    <!-- 商品导航 -->
     <ProductBar></ProductBar>
     <!-- Swiper -->
     <swiper ref="mySwiper" :options="swiperOptions">
@@ -53,13 +56,15 @@
     <div class="floor_item">
       <div class="choose">
         <span>已选</span>
-        <span>绿色，64GB，换修无忧年付版，1个</span>
+        <span>红色，64GB</span>
         <Specification></Specification>
         <p>本商品支持保障服务，点击可选服务</p>
       </div>
       <div class="transfer">
-        <span>送至</span>
-        <span>北京朝阳区三环到四环之间</span>
+        <div style="display:flex;">
+          <span>送至</span>
+          <DeliveryAddress></DeliveryAddress>
+        </div>
         <p>23:10前下单，预计明天(05月17日)送达</p>
       </div>
       <div class="weight">
@@ -92,10 +97,10 @@
         <button>进入店铺</button>
       </div>
     </div>
-
+    <!-- 回到顶部按钮 -->
     <div class="footer">
       <div class="gotop" v-if="btnFlag" @click="backtop">
-        <van-icon name="upgrade" size="30" color="rgb(255, 196, 28)"/>
+        <van-icon name="upgrade" size="30" color="rgb(255, 196, 28)" />
       </div>
     </div>
 
@@ -117,6 +122,8 @@
 import Comment from "../components/Comment";
 import ProductBar from "../components/ProductBar";
 import Specification from "../components/Specification";
+import DeliveryAddress from "../components/DeliveryAddress"
+import MenuNav from '../components/MenuNav'
 
 export default {
   data() {
@@ -145,13 +152,16 @@ export default {
   components: {
     Comment,
     ProductBar,
-    Specification
+    Specification,
+    DeliveryAddress,
+    MenuNav
   },
 
   methods: {
     goback() {
       this.$router.push("/phonelist");
     },
+    // 回到顶部按钮
     showbtn() {
       let that = this;
       let scrollTop =
@@ -159,7 +169,7 @@ export default {
         document.documentElement.scrollTop ||
         document.body.scrollTop;
       that.scrollTop = scrollTop;
-      if (that.scrollTop > 200) {
+      if (that.scrollTop > 300) {
         that.btnFlag = true;
       } else {
         that.btnFlag = false;
@@ -177,149 +187,20 @@ export default {
           clearInterval(timer);
         }
       }, 30);
+    },
+    // 显示菜单
+    showMenu(){
+      var div = document.querySelector(".header_nav");
+        if(div.style.display == "none"){
+            div.style.display = "block";
+        }else{
+            div.style.display = "none";
+        }
     }
   }
 };
 </script>
 
 <style scoped>
-.header_bar {
-  display: flex;
-  background: #fff;
-  padding: 5px;
-}
-.header_bar .back {
-  width: 30px;
-  height: 30px;
-  background-color: #666;
-  border-radius: 50%;
-}
-.header_bar .back img {
-  width: 100%;
-}
-.header_bar .cart {
-  width: 84%;
-  text-align: center;
-}
-.header_bar #menu {
-  width: 30px;
-  height: 30px;
-  background-color: #666;
-  border-radius: 50%;
-}
-.header_bar #menu img {
-  width: 100%;
-}
-/* 手动轮播图 */
-.swiper-container .swiper-slide img {
-  width: 100%;
-}
-.swiper-pagination {
-  background: #ccc;
-  color: #fff;
-  border-radius: 10px 0 0 10px;
-}
-/* 购买信息描述 */
-.buy_area {
-  overflow: hidden;
-  background: #fff;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-  padding: 15px;
-}
-.buy_area .item_desc p {
-  color: #666;
-  font-size: 12px;
-}
-
-/* 属性选择 */
-.floor_item {
-  margin-top: 10px;
-  background: #fff;
-  border-radius: 20px;
-}
-.floor_item .choose,
-.transfer,
-.weight {
-  margin-top: 5px;
-  padding: 15px 0;
-}
-.floor_item .weight {
-  padding: 18px 20px 18px 0;
-}
-.floor_item .choose span,
-.transfer span,
-.weight span {
-  font-size: 13px;
-  color: #333;
-  margin-left: 10px;
-}
-.floor_item .choose p,
-.transfer p {
-  font-size: 12px;
-  color: #8c8c8c;
-  margin-left: 50px;
-  padding-top: 5px;
-}
-/* 店铺 */
-.shop {
-  font-size: 14px;
-  margin-top: 10px;
-  background: #fff;
-  border-radius: 20px;
-  padding: 15px;
-}
-.shop .shop_name {
-  height: 40px;
-}
-.shop .shop_name img {
-  width: 40px;
-  height: 40px;
-  vertical-align: middle;
-}
-.shop .shop_name span {
-  font-size: 13px;
-  vertical-align: middle;
-  line-height: 40px;
-  margin-left: 5px;
-}
-.shop .shop_tab {
-  margin: 18px 0;
-  display: flex;
-}
-.shop .shop_tab .tab_item {
-  width: 100%;
-  text-align: center;
-}
-.shop .shop_tab .tab_item .desc {
-  font-size: 12px;
-  color: #999;
-  margin-top: 3px;
-}
-.shop .shop_btn {
-  text-align: center;
-}
-.shop .shop_btn button {
-  background-color: #fff;
-  border: none;
-  border: 1px solid #ccc;
-  border-radius: 15px;
-  height: 30px;
-  font-size: 12px;
-  padding: 0 20px;
-  margin: 10px;
-  outline: none;
-}
-/*  */
-.footer .gotop {
-  text-align: center;
-  position: fixed;
-  right: 2%;
-  bottom: 20%;
-  cursor: pointer;
-  padding: 0px;
-  border-radius: 50%;
-  background: white;
-  color: #000000;
-}
+@import "../css/phoneDetail.css";
 </style>
