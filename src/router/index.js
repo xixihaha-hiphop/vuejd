@@ -13,6 +13,7 @@ import ShopCart from '../pages/ShopCart.vue'
 import Mine from '../pages/Mine.vue'
 import PhoneList from '../pages/PhoneList.vue'
 import PhoneDetail from '../pages/PhoneDetail.vue'
+import UserSet from '../pages/UserSet.vue'
 
 
 Vue.use(Router)
@@ -50,6 +51,11 @@ export default new Router({
       path: '/phonedetail',
       name: 'PhoneDetail',
       component: PhoneDetail
+    },
+    {
+      path: '/userset',
+      name: 'UserSet',
+      component: UserSet
     }
   ]
 })
