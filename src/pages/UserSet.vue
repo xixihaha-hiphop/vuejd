@@ -10,7 +10,7 @@
     <MenuNav></MenuNav>
     <!--  -->
     <br>
-    <van-cell is-link @click="showPopup">设置收货地址</van-cell>
+    <van-cell is-link @click="showPopup">收货地址设置</van-cell>
     <van-popup v-model="show" round position="bottom" :style="{ height: '65%' }">
       <van-address-edit
         :area-list="areaList"
@@ -30,6 +30,15 @@
         <p class="address">xx省xx市xx区xx街道xx号</p>
       </div>
     </div>
+    <br>
+    <!--  -->
+    <van-cell is-link >账户与安全</van-cell>
+    <van-cell is-link >支付密码管理</van-cell>
+    <br>
+    <van-cell is-link >联系客服</van-cell>
+    <van-cell is-link >切换站点</van-cell>
+    <div style="height:262px"></div>
+    <!-- <br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
   </div>
 </template>
 
@@ -70,10 +79,13 @@ export default {
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
+  .van-cell
+    border-radius 10px
+  // 地址栏
   .address-box
     // height 50px
     background-color #fff
-    margin 10px 0
+    // margin-bottom 10px
     border-radius 10px
     .address-info
       padding 10px 10px 5px 10px
