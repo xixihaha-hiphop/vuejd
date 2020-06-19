@@ -22,7 +22,7 @@
         </div>
       </div>
     </div>
-
+    <!-- 第一组 -->
     <div class="group">
       <div class="group_list">
         <div class="option waitpay">
@@ -51,6 +51,7 @@
         </div>
       </div>
     </div>
+    <!-- 第二组 -->
     <div class="group">
       <div class="group_list">
         <div class="option">
@@ -79,29 +80,35 @@
         </div>
       </div>
     </div>
+    <!-- 第三组 -->
     <div class="group">
       <div class="group_list">
         <div class="option option3">
           <a href>
-            <p>0</p>
-            <p>商品收藏</p>
+            <p class="op3-num">0</p>
+            <p class="op3-text">商品收藏</p>
           </a>
         </div>
         <div class="option option3">
           <a href>
-            <p>0</p>
-            <p>店铺收藏</p>
+            <p class="op3-num">0</p>
+            <p class="op3-text">店铺收藏</p>
           </a>
         </div>
         <div class="option option3">
           <a href>
-            <p>0</p>
-            <p>我的足迹</p>
+            <p class="op3-num">0</p>
+            <p class="op3-text">我的足迹</p>
           </a>
         </div>
       </div>
     </div>
-
+    <!-- 第四组 -->
+    <van-grid square>
+      <van-grid-item v-for="(item,index) in items" :key="index" :icon="item.img" :text="item.text" :border="false">
+      </van-grid-item>
+    </van-grid>
+    <div style="height:100px;"></div>
     <!-- 底部导航 -->
     <FooterGuide></FooterGuide>
   </div>
@@ -112,7 +119,17 @@ import FooterGuide from "../components/FooterGuide";
 import MenuNav from "../components/MenuNav";
 export default {
   data() {
-    return {};
+    return {
+      items:[
+        {img: require('../images/mine/yuyue.png'),text:"我的预约"},
+        {img: require('../images/mine/huishou.png'),text:"高价回收"},
+        {img: require('../images/mine/huoche.png'),text:"京东火车票"},
+        {img: require('../images/mine/tuijian.png'),text:"应用推荐"},
+        {img: require('../images/mine/jipiao.png'),text:"京东机票"},
+        {img: require('../images/mine/jiudian.png'),text:"京东酒店"},
+        {img: require('../images/mine/xian.png'),text:"闲置换钱"},
+      ]
+    };
   },
 
   components: {
@@ -196,7 +213,13 @@ export default {
       .option3 
         width: 33%;
         margin-top: 10px;
-        p 
-          font-size: 15px;
-
+        .op3-num
+          font-size 16px
+        .op3-text 
+          font-size: 12px
+          margin-top -25px
+  // 
+  .van-icon__image 
+    width 20px
+    height 20px
 </style>

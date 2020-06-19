@@ -301,7 +301,7 @@ li {
 }
  .seckill ul{
     width: auto;
-    height: 8rem;
+    height: 8.6rem;
     overflow-x: auto;
     white-space: nowrap;
     margin-top: 1%;
@@ -321,10 +321,12 @@ li {
  .seckill ul .seckill-new-item .price01{
     font-size: 14px;
     color: red;
+    margin-bottom:  0px
 }
  .seckill ul .seckill-new-item .price02{
     font-size: 12px;
     color: #ccc;
+    margin-top: 0px;
 }
  .seckill ul .seckill-all-item{
     display: inline-block;
@@ -344,6 +346,5 @@ li {
 .seckill ul li .seckill-all span{
     display: block;
     margin: 0 5px;
-    
 }
 </style>
